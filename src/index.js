@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { configureStore } from "@reduxjs/toolkit";
+import { createStore } from "@reduxjs/toolkit";
 
 //STORE: GLOBALIXED STATE
 
@@ -30,7 +31,7 @@ const counter = (state = 0, action) => {
   }
 };
 
-let store = configureStore(counter);
+let store = createStore(counter);
 
 //Display it in the console
 store.subScribe(() => console.log(store.getState()));
