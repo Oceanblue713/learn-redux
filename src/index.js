@@ -3,43 +3,9 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { configureStore } from "@reduxjs/toolkit";
-import { createStore } from "@reduxjs/toolkit";
+import allReducer from "./reducers";
 
-//STORE: GLOBALIXED STATE
-
-//ACTION INCREMENT (Return Object)
-const increment = () => {
-  return {
-    type: "INCREMENT",
-  };
-};
-
-const decrement = () => {
-  return {
-    type: "DECREMENT",
-  };
-};
-
-//REDUER
-const counter = (state = 0, action) => {
-  switch (action.type) {
-    case "INCREMENT":
-      return state + 1;
-    case "DECREMENT":
-      return state - 1;
-  }
-};
-
-let store = createStore(counter);
-
-//Display it in the console
-store.subScribe(() => console.log(store.getState()));
-
-//DISPATCH (Execute Action)
-store.dispatch(increment());
-store.dispatch(decrement());
-store.dispatch(decrement());
+const store = createStore(allReducer);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
