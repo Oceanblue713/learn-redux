@@ -4,8 +4,12 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import allReducer from "./reducers";
+import { createStore } from "redux";
 
-const store = createStore(allReducer);
+const store = createStore(
+  allReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
